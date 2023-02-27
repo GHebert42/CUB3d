@@ -31,7 +31,7 @@ LIBFT	:= $(LFTDIR)/libft.a
 
 INCL	:= -I include/ -I $(LFTDIR)  -I $(MLXDIR)/include
 
-LIBS	:=  $(LIBMLX) $(LIBFT) -ldl -lglfw -pthread -lm
+LIBS	:=  $(LIBMLX) $(LIBFT) -ldl -lglfw -L"/Users/gehebert/.brew/opt/glfw/lib/" -pthread -lm
 
 NAME	:= cub3D
 
