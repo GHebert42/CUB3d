@@ -83,28 +83,28 @@ int	tex_parse(t_cub *cub, t_map *map)
 	int		id;
 
 	nb = 0;
-	while (nb < 6 && map->raw[nb])
+	// printf("raw len = %d \n", (strtab_len(map->raw)));
+	while (map->raw[nb] && cub->tex_id < cub->mx->xnum)
 	{
 		id = ft_in_set(map->raw[nb][0], (const char *)"WNESCFAB");
-		printf("id for tag %d : %c  \n", id,map->raw[nb][0]);
+		printf("  #%d)- id for tag %c [%d]  \n", nb, map->raw[nb][0], id);
 		// printf("id for tag %d \n", map->raw[nb][1]);
 		if (id < 0 || map->raw[nb][1] != ' ')
 			return (error_clr("Invalid config found!\n", map));
 		else if (id > 5)
 		{
 			if (get_tex_by_ref(cub, id, map->raw[nb]))
-				nb = 5;
+				cub->tex_id++;
 			else
 				return (error_clr(NULL, map));
 		}
-		else if (id < 4 && !get_tex_by_id(cub, id, map->raw[nb]))
-			return (error_clr(NULL, map));
+		// else if (id < 4 && !get_tex_by_id(cub, id, map->raw[nb]))
+		// 	return (error_clr(NULL, map));
 		if (id == 4 || id == 5)
 		{
 			if (!color_split(map->raw[nb], cub->tex.color + (id - 4)))
 				return (-1);
 		}	
-		printf("tex_parse nb = %d \n", nb);
 		nb++;
 	}
 	if (cub->tex_id != 3)
