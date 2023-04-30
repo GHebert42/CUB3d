@@ -72,3 +72,10 @@ tex/ext/white-marble.png
 tex/ext/purple-cloth.png
 tex/ext/comida_pan.png
 tex/ext/comida_queso.png
+
+
+@ : player
+#  : portal
++  : lever(adjescent_wall)
+$  : fire_ball
+.... .... ....

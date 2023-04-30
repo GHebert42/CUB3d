@@ -68,6 +68,7 @@
 # define MAP_LCHR "abcdefghijz"
 # define MAP_NCHR "0123456789"
 # define MAP_UCHR "ABCDEFGHIJ"
+# define MAP_MCHR "@$%<!>&#+="
 
 # define PLAYER_HEIGHT 32
 

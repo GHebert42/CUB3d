@@ -84,7 +84,7 @@ t_box	*e_mtrx_link(t_box *box, char **raw)
 			if (ft_in_set(raw[i][0], (const char *)MAP_NCHR) != -1)
 				box->pnum++;
 			box->xform[i] = mlx_load_png(tex_path);
-			// printf("inventaire: pnum:[%d] xnum:[%d] \n\n", box->pnum, box->xnum);
+			printf("inventaire: pnum:[%d] xnum:[%d] \n\n", box->pnum, box->xnum);
 			if (!box->xform[i])
 				return (report_mlx_tex_load_failed(tex_path));
 			if (tex_name[0] == 'z')
