@@ -98,6 +98,7 @@ typedef struct s_box
 {	
 	char 			*chrs;
 	int				chrs_len;
+	int				meta;
 	int 			xnum;	
 	int				pnum;
 	int				pset;
@@ -346,7 +347,6 @@ typedef struct s_cub3d_core_data
 {
 	/// MLX42 DATA
 	mlx_t			*mlx;
-//	mlx_image_t		*imgz;	// maybe for mini_map
 	mlx_image_t		*color;
 
 	/// TEMP VARS FOR TESTING AND DEBUG ONLY ///////////////////

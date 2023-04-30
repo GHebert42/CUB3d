@@ -1,15 +1,12 @@
-a tex/ext/rusty-metal.png
-b tex/ext/dark-metal.png
-c tex/ext/grunge-rock.png
-d tex/ext/travertine-stone.png
-e tex/ext/white-marble.png
-f tex/ext/comida_pan.png
++ tex/ext/press_plate.png
+# tex/ext/Portaloff.png
+a tex/ext/dark-metal.png
+b tex/ext/travertine-stone.png
 z tex/ext/sky_star.png
 0 tex/ext/floor.png
 
-A abcd
-B efef
-C aaaa
+A aaaa
+B bbbb
 
 AAAAAAAAAAAAAA
 A000000000000A  
@@ -18,9 +15,9 @@ A0000000BBBBBB
 AABBB00000000A
 A000000000000A
 A000000000000A
-B000000A00000A
-B000A00B00000A
-B000000C00000A
-B000@00000000A
-B000000000000A
+B000000B00000A
+B000000B00000A
+B000000B00000A
+B000@0000000#A
+B0000000+0000A
 BAABBAAABBBAAA

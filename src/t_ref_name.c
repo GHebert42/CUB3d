@@ -51,8 +51,7 @@ t_cub	*chsr_feed(t_cub *cub)
 	cub->box.chrs = (char *)malloc(sizeof(char) * cub->box.chrs_len + 2);
 	while (*cub->map.raw && cub->map.raw[++i] && j < cub->box.chrs_len)
 	{
-		if (cub->map.raw[i][0] > 32 && cub->map.raw[i][0] < 97 &&
-			cub->map.raw[i][1] == 32)
+	
 		{
 			cub->box.chrs[j] = cub->map.raw[i][0];
 			++j;
@@ -80,15 +79,20 @@ t_box	*e_mtrx_link(t_box *box, char **raw)
 		if (raw[i][0] > 32)
 		{
 			tex_name = ft_substr(raw[i], 0, 1);
+			if (raw[i][0] > 32 && raw[i][0] < 48 && raw[i][1] == 32)
+				box->meta++;
 			tex_path = ft_substr(raw[i], 2, ft_strlen(raw[i]) - 2);
 			if (ft_in_set(raw[i][0], (const char *)MAP_NCHR) != -1)
 				box->pnum++;
 			box->xform[i] = mlx_load_png(tex_path);
-			printf("inventaire: pnum:[%d] xnum:[%d] \n\n", box->pnum, box->xnum);
+			printf("inventaire: meta:[%d] pnum:[%d] xnum:[%d] \n\n", box->meta, box->pnum, box->xnum);
 			if (!box->xform[i])
 				return (report_mlx_tex_load_failed(tex_path));
 			if (tex_name[0] == 'z')
+			{
 				box->sky = box->xform[i];
+				// printf("sky_name {%s}  sky status[%d]\n\n", cub->box.chrs, );
+			}
 		}
 	}
 	return (box);
@@ -107,9 +111,11 @@ t_cub	*e_mtrx_count(t_cub *cub)
 		rawz = cub->map.raw[i];
 		if (rawz[0] > 32 && rawz[0] < 97 && rawz[1] == 32)
 			++cub->box.chrs_len;
+		if (ft_strchr_set(rawz, "_.png") != NULL)
+			cub->tex.open_sky = 1; // tile
 		if (ft_strchr_set(rawz, ".png") != NULL)
 			++cub->box.xnum;
-		// printf("COUNT legende [%d] into_Raw {%s} ...\n", i, cub->map.raw[i]); 
+		printf("COUNT legende [%d] into_Raw {%s} ...\n", i, cub->map.raw[i]); 
 	}
 	return (cub);
 }
